@@ -2,7 +2,7 @@
 // var path = require('path');
 import Sequelize from 'sequelize';
 
-const sequelize = new Sequelize('slack', 'jordan', 'postgres', {
+const sequelize = new Sequelize('entendre', 'jordan', 'postgres', {
   dialect: 'postgres',
   operatorsAliases: false,
   // underscored: true,
