@@ -16,6 +16,9 @@ export default (sequelize, DataTypes) => {
     Song.belongsTo(models.Artist, {
       foreignKey: 'artist_id',
     });
+    Song.hasMany(models.Tag, {
+      foreignKey: 'song_id',
+    });
   };
 
   return Song;

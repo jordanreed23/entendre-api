@@ -13,10 +13,11 @@ const resolvers = mergeResolvers(fileLoader(path.join(__dirname, './resolvers'))
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
-const PORT = 8081;
-
 const app = express();
 app.use(cors('*'));
+
+// app.set('port', process.env.PORT || 8081);
+const PORT = 8081;
 
 // bodyParser is needed just for POST.
 const graphqlEndpoint = '/graphql';
@@ -30,7 +31,7 @@ app.use(graphqlEndpoint, bodyParser.json(), graphqlExpress({
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: graphqlEndpoint }));
 
-models.sequelize.sync() //{ force: true })
+models.sequelize.sync()//s{ force: true })
   .then(() => {
     app.listen(PORT);
   });

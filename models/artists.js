@@ -4,12 +4,11 @@ export default (sequelize, DataTypes) => {
     vocab: DataTypes.INTEGER,
     tags: DataTypes.INTEGER,
     art: DataTypes.STRING,
-    unique_words: DataTypes.INTEGER,
+    bio: DataTypes.TEXT,
   });
 
   Artist.associate = (models) => {
-    Artist.belongsToMany(models.Album, {
-      through: 'artist_album',
+    Artist.hasMany(models.Album, {
       foreignKey: 'artist_id',
     });
   };

@@ -3,6 +3,7 @@ export default `
 type User{
   id: Int!
   username: String
+  token: String!
   pic: String
   contributions: Int
   tags: [Tag]
@@ -10,6 +11,7 @@ type User{
 
 type Query{
   getUser(id: Int!): User!
+  loginUser(username: String, token: String!): User
   allUsers: [User!]!
 }
 

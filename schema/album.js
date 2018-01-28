@@ -1,11 +1,21 @@
 export default `
 type Album{
   id: Int!
-  name: String!
+  name: String
   rank: Int
-  art: String!
+  art: String
   unique_words: Int
-  artists: [Artist!]!
-  songs: [Song!]!
+  artist: Artist
+  songs: [Song]
+  year: Int
+  description: String
+}
+
+type Query{
+  getAlbum(artist_id: Int!, name: String!): Album
+}
+
+type Mutation {
+  addAlbum(name: String!, art: String, artist_id: Int!, year: String!, description: String!): Album
 }
 `;
