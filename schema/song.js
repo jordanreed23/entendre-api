@@ -4,9 +4,17 @@ type Song{
   name: String
   rank: Int
   unique_words: Int
-  tags: Int
+  tags: [Tag]
   album: Album
   artist: Artist
   lyrics: String
+}
+
+type Query{
+  getSong(artist_id: Int!, album_id: Int!, name: String!): Song
+}
+
+type Mutation {
+  addSong(name: String!, artist_id: Int!, album_id: Int!, unique_words: Int!, lyrics: String!): Song
 }
 `;

@@ -8,6 +8,9 @@ export default {
     getArtist: (parent, args, { models }) => models.Artist.findOne({
       where: { name: args.name },
       include: [{
+        order: [
+          ['albums.year', 'DESC'],
+        ],
         model: models.Album,
         include: [{
           model: models.Song,

@@ -16,6 +16,6 @@ type Query{
 }
 
 type Mutation {
-  addAlbum(name: String!, art: String, artist_id: Int!, year: String!, description: String!): Album
+  addAlbum(name: String!, art: String, artist_id: Int!, year: String, description: String): Album
 }
 `;
