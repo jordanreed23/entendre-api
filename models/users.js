@@ -9,12 +9,11 @@ export default (sequelize, DataTypes) => {
     contributions: DataTypes.INTEGER,
   });
 
-  // User.associate = (models) => {
-  //   User.belongsToMany(models.Tags, {
-  //     through: 'tags',
-  //     foreignKey: 'user_id',
-  //   });
-  // };
+  User.associate = (models) => {
+    User.hasMany(models.Tag, {
+      foreignKey: 'user_id',
+    });
+  };
 
   return User;
 };

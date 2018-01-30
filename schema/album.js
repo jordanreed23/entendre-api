@@ -13,9 +13,11 @@ type Album{
 
 type Query{
   getAlbum(artist_id: Int!, name: String!): Album
+  allAlbums: [Album]
 }
 
 type Mutation {
   addAlbum(name: String!, art: String, artist_id: Int!, year: String, description: String): Album
+  updateAlbumVocab(id: Int!, unique_words: Int!): Album
 }
 `;

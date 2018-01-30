@@ -4,6 +4,7 @@ export default (sequelize, DataTypes) => {
     length: DataTypes.INTEGER,
     votes: DataTypes.INTEGER,
     lyric: DataTypes.STRING,
+    device: DataTypes.STRING,
   });
 
   Tag.associate = (models) => {
@@ -13,9 +14,9 @@ export default (sequelize, DataTypes) => {
     Tag.belongsTo(models.Song, {
       foreignKey: 'song_id',
     });
-    Tag.belongsTo(models.Device, {
-      foreignKey: 'device_id',
-    });
+    // Tag.belongsTo(models.Device, {
+    //   foreignKey: 'device_id',
+    // });
   };
 
   return Tag;
