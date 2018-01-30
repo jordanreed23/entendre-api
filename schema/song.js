@@ -12,7 +12,7 @@ type Song{
 
 type Query{
   getSong(artist_id: Int!, album_id: Int!, name: String!): Song
-  allSongs: [Song]
+  allSongs(artist_id: Int!): [Song]
 }
 
 type Mutation {

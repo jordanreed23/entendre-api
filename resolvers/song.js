@@ -10,11 +10,17 @@ export default {
         // where: { artist_id:  }
       }],
     }),
-    allSongs: (parent, args, { models }) => models.Album.findAll({
+    allSongs: (parent, args, { models }) => models.Song.findAll({
       order: [
         ['unique_words', 'DESC'],
       ],
       limit: 10,
+      include: [{
+        model: models.Artist,
+        where: {id: args.artist_id},
+        // as: 'album',
+        // where: { artist_id:  }
+      }],
       where: { unique_words: { [Op.ne]: null } } }),
   },
   Mutation: {
