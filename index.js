@@ -16,8 +16,10 @@ const schema = makeExecutableSchema({ typeDefs, resolvers });
 const app = express();
 app.use(cors('*'));
 
-// app.set('port', process.env.PORT || 8081);
-const PORT = 8081;
+app.set('port', process.env.PORT || 8081);
+// const PORT = 8081;
+
+app.use(express.static(__dirname + '/public'));
 
 // bodyParser is needed just for POST.
 const graphqlEndpoint = '/graphql';
@@ -33,5 +35,7 @@ app.use('/graphiql', graphiqlExpress({ endpointURL: graphqlEndpoint }));
 
 models.sequelize.sync()//{ force: true })
   .then(() => {
-    app.listen(PORT);
+    app.listen(app.get('port'), () => {
+      console.log('App is running on port', app.get('port'));
+    });
   });
