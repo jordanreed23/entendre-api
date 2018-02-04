@@ -2,6 +2,8 @@
 // import path from 'path';
 import Sequelize from 'sequelize';
 
+require('dotenv').config();
+
 // const env = process.env.NODE_ENV || 'development';
 // const config = require(__dirname + './../config/config.js')[env];
 let sequelize = '';
@@ -16,6 +18,7 @@ if (process.env.DATABASE_URL) {
       ssl: true,
     },
   });
+  console.log(process.env.DATABASE_URL);
 } else {
   sequelize = new Sequelize('entendre', 'jordan', 'postgres', {
     dialect: 'postgres',
