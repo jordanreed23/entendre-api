@@ -4,7 +4,7 @@
   "description": "",
   "main": "hello.js",
   "scripts": {
-    "start": "--exec babel-node index.js"
+    "start": "babel-node index.js"
   },
   "repository": {
     "type": "git",
