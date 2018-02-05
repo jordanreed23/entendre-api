@@ -8,6 +8,7 @@ require('dotenv').config();
 // const config = require(__dirname + './../config/config.js')[env];
 let sequelize = '';
 
+// console.log(config);
 
 // if (config.use_env_variable) {
 //   var sequelize = new Sequelize(process.env[config.use_env_variable], config);
@@ -18,8 +19,8 @@ let sequelize = '';
 if (process.env.DATABASE_URL) {
   sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
-    // protocol: 'postgres',
-    // logging: false,
+    protocol: 'postgres',
+    logging: false,
     ssl: true,
     dialectOptions: {
       ssl: true,
