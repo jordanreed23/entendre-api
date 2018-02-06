@@ -26,13 +26,13 @@ if (process.env.DATABASE_URL) {
       ssl: true,
     },
   });
-  console.log("using heroku db");
+  console.log('using heroku db');
 } else {
   sequelize = new Sequelize('entendre', 'jordan', 'postgres', {
     dialect: 'postgres',
     operatorsAliases: false,
   });
-  console.log("using local db");
+  console.log('using local db');
 }
 
 const models = {

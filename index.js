@@ -19,7 +19,7 @@ app.use(cors('*'));
 app.set('port', process.env.PORT || 8081);
 // const PORT = 8081;
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // bodyParser is needed just for POST.
 const graphqlEndpoint = '/graphql';
@@ -33,7 +33,7 @@ app.use(graphqlEndpoint, bodyParser.json(), graphqlExpress({
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: graphqlEndpoint }));
 
-models.sequelize.sync()//{ force: true })
+models.sequelize.sync() //  { force: true })
   .then(() => {
     app.listen(app.get('port'), () => {
       console.log('App is running on port', app.get('port'));
